@@ -7,7 +7,7 @@ export class ClientProxySmartRanking {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://user:user@0.0.0.0:5672'],
+        urls: ['amqp://user:user@rabbitmq:5672'],
         queue: 'admin-backend',
       }
     });
@@ -17,7 +17,7 @@ export class ClientProxySmartRanking {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://user:user@0.0.0.0:5672'],
+        urls: ['amqp://user:user@rabbitmq:5672'],
         queue: 'challenges',
       }
     });
@@ -27,7 +27,7 @@ export class ClientProxySmartRanking {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://user:user@0.0.0.0:5672'],
+        urls: ['amqp://user:user@rabbitmq:5672'],
         queue: 'rankings',
       }
     });

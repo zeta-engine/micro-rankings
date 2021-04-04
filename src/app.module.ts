@@ -5,7 +5,7 @@ import { ProxyRMQModule } from './proxyrmq/proxyrmq.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://root:root@localhost:27017/sr-rankings',
+    MongooseModule.forRoot('mongodb://root:root@mongo:27017/sr-rankings',
       { authSource: 'admin', useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }
     ),
     RankingsModule,
