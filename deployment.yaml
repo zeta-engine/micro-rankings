@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-rankings
+  labels:
+    app: micro-rankings
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: micro-rankings
+  template:
+    metadata:
+      labels:
+        app: micro-rankings
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: micro-rankings
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 3002
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: micro-rankings
+spec:
+  selector:
+    app: micro-rankings
+  type: ClusterIP
+  ports:
+  - name: port3002
+    port: 3002
+    targetPort: 3002
